@@ -35,9 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const servicio = document.getElementById('servicio').value;
             const valor = parseFloat(document.getElementById('valor').value);
             const mes = document.getElementById('mes').value;
-            const mensajeDiv = document.getElementById('mensajeRespuesta');
+            const mensajeDiv = document.getElementById('mensajeEstado');
 
-            mensajeDiv.innerHTML = '<p style="color: blue;">Guardando registro...</p>';
+if (!servicio) {
+    mensajeDiv.innerHTML = '<p style="color: red;">Por favor, selecciona un servicio.</p>';
+    return;
+}
+
+if (isNaN(valor) || valor <= 0) {
+    mensajeDiv.innerHTML = '<p style="color: red;">El valor del consumo debe ser mayor que 0.</p>';
+    return;
+}
+
+if (!mes) {
+    mensajeDiv.innerHTML = '<p style="color: red;">Por favor, selecciona un mes.</p>';
+    return;
+}
+
+mensajeDiv.innerHTML = '<p style="color: blue;">Guardando registro...</p>';
 
             try {
                 // Instanciar supabase localmente
