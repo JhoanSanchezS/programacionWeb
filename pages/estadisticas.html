@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPCR | Estadísticas y Reportes</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>SPCR 💧⚡</h1>
+            <ul>
+                <li><a href="../index.html">Salir</a></li>
+                <li><a href="consumo.html">Consumo</a></li>
+                <li><a href="consejos.html">Consejos</a></li>
+                <li><a href="estadisticas.html" class="active">Estadísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Historial y Estadísticas de Consumo 📊</h2>
+        <p>Visualiza los registros almacenados en la base de datos para tu planificación financiera.</p>
+
+        <button id="cargarDatosBtn" class="btn-primary">Cargar Historial</button>
+        
+        <div id="tablaResultados" style="margin-top: 20px;">
+            <!-- Aquí cargaremos los datos de Supabase -->
+        </div>
+    </main>
+
+    <script src="../js/supabase.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

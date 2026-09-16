@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPCR | Registro de Consumo</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- SDK de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>SPCR 💧⚡</h1>
+            <ul>
+                <li><a href="../index.html">Salir</a></li>
+                <li><a href="consumo.html" class="active">Consumo</a></li>
+                <li><a href="consejos.html">Consejos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Registro Mensual de Servicios Públicos</h2>
+        <p>Hogar actual: <strong id="nombreHogarDisplay">Cargando...</strong></p>
+
+        <form id="consumoForm" class="card-form">
+            <div class="form-group">
+                <label for="servicio">Servicio:</label>
+                <select id="servicio" required>
+                    <option value="">Seleccione un servicio</option>
+                    <option value="Agua">Agua 💧</option>
+                    <option value="Energia">Energía ⚡</option>
+                    <option value="Gas">Gas 🔥</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Valor o Consumo ($):</label>
+                <input type="number" id="valor" step="0.01" placeholder="Ej. 85000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mes">Mes:</label>
+                <input type="text" id="mes" placeholder="Ej. Enero" required>
+            </div>
+
+            <button type="submit" class="btn-primary">Guardar Registro</button>
+        </form>
+        <p id="mensajeEstado" class="status-msg"></p>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/supabase.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
