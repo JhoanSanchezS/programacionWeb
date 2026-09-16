@@ -25,6 +25,16 @@
         <p>Visualiza los registros almacenados en la base de datos para tu planificación financiera.</p>
 
         <button id="cargarDatosBtn" class="btn-primary">Cargar Historial</button>
+        <div class="filtro-estadisticas">
+    <label for="filtroServicio">Filtrar por servicio:</label>
+    <select id="filtroServicio">
+        <option value="todos">Todos</option>
+        <option value="Agua">Agua</option>
+        <option value="Energía">Energía</option>
+        <option value="Gas">Gas</option>
+    </select>
+</div>
+
         
         <div id="tablaResultados" style="margin-top: 20px;">
             <!-- Aquí cargaremos los datos de Supabase -->

@@ -81,7 +81,10 @@ mensajeDiv.innerHTML = '<p style="color: blue;">Guardando registro...</p>';
     if (cargarDatosBtn) {
         cargarDatosBtn.addEventListener('click', async () => {
             const contenedorTabla = document.getElementById('tablaResultados');
+            const filtroServicio = document.getElementById('filtroServicio');
             contenedorTabla.innerHTML = '<p>Cargando datos desde Supabase...</p>';
+            
+
 
             try {
                 // Instanciar supabase localmente
@@ -100,11 +103,21 @@ mensajeDiv.innerHTML = '<p style="color: blue;">Guardando registro...</p>';
                     contenedorTabla.innerHTML = '<p>No hay registros guardados todavía.</p>';
                     return;
                 }
+                const servicioSeleccionado = filtroServicio ? filtroServicio.value : 'todos';
+
+const datosFiltrados = servicioSeleccionado === 'todos'
+    ? data
+    : data.filter(row => row.servicio === servicioSeleccionado);
+
+if (datosFiltrados.length === 0) {
+    contenedorTabla.innerHTML = '<p>No hay registros para el servicio seleccionado.</p>';
+    return;
+}
 
                 let html = '<table border="1" cellpadding="8" style="width:100%; border-collapse: collapse; background:white; text-align: left;">';
                 html += '<tr style="background-color: #f2f2f2;"><th>ID</th><th>Servicio</th><th>Valor ($)</th><th>Mes</th></tr>';
                 
-                data.forEach(row => {
+                datosFiltrados.forEach(row => {
                     html += `<tr>
                                 <td>${row.id}</td>
                                 <td>${row.servicio}</td>
